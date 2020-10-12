@@ -1,0 +1,25 @@
+{
+  "name": "note-keeper",
+  "version": "1.0.0",
+  "description": "![User Story Screenshot](./Develop/public/assets/img/user-story.png)",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^26.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catse2000/note-keeper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catse2000/note-keeper/issues"
+  },
+  "homepage": "https://github.com/catse2000/note-keeper#readme"
+}
