@@ -3,23 +3,19 @@ const app = express();
 const { notes } = require('./Develop/db/db.json');
 const PORT = process.env.PORT || 3001;
 
-function filterByQuery(query, notesArray) {
-    let filteredResults = notesArray;
-    if (query.title) {
-        filteredResults = filteredResults.filter(note => note.title === query.title);
-    }
-    if(query.text) {
-        filteredResulsts = filteredResults.filter(note => note.text === query.text);
-    }
-    return filteredResults;
+function findById(id, notesArray) {
+    const result = notesArray.filter(note => note.id === id)[0];
+    return result;
 };
 
-app.get('/api/notes', (req, res) => {
-    let results = notes;
-    if (req.query) {
-        results = filterByQuery(req.query, results);
+app.get('/api/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes);
+    if (result) {
+        res.json(result);
     }
-    res.json(results);
+    else {
+        res.send(404);
+    }
 });
 
 
