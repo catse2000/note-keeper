@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+app.use(express.static('Develop/public'));
+
 function filterByQuery(query, notesArray) {
     let filteredResults = notesArray;
     if(query.title) {
@@ -63,6 +65,13 @@ app.get('/api/notes/:id', (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
+});
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
+})
 app.post('/api/notes', (req, res) => {
     req.body.id = notes.length.toString();
 

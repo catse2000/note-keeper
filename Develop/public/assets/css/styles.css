@@ -62,6 +62,9 @@ html, body {
   cursor: pointer;
 }
 
+.list-group-item i {
+  float: right;
+}
 .list-container .list-group-item {
   border-left: none;
   border-right: none;

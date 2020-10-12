@@ -9,6 +9,11 @@
       "title": "New Note",
       "text": "Another new note!",
       "id": "1"
+    },
+    {
+      "title": "Test Note",
+      "text": "Testing this note",
+      "id": "2"
     }
   ]
 }
