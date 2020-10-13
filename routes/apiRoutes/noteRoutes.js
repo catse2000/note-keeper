@@ -1,5 +1,5 @@
 const router = require('express').Router(); //import router so as to make express functions useable through other parts of the application
-const {filterByQuery, findById, createNewNote, validateNote } = require('../../lib/notes'); //import functions to be used in this file
+const { filterByQuery, findById, createNewNote, validateNote } = require('../../lib/notes'); //import functions to be used in this file
 const { notes } = require('../../db/db.json'); //import data
 
 // Get data from web and filter based on query
@@ -33,6 +33,12 @@ router.post('/notes', (req, res) => {
         const note = createNewNote(req.body, notes); // call function createNewNote in order to create new note
         res.json(note); //post to server in json format
     }
+});
+
+router.delete('/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes);
+    notes.splice(result, 1);
+    res.json(notes);
 });
 
 module.exports = router; //export for use in other parts of the application
