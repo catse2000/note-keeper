@@ -36,6 +36,7 @@ router.post('/notes', (req, res) => {
     }
 });
 
+// function to delete data from the json database
 router.delete('/notes/:id', (req, res) => {
     const result = findById(req.params.id, notes);
     notes.splice(result, 1);
