@@ -1,6 +1,7 @@
 const router = require('express').Router(); //import router so as to make express functions useable through other parts of the application
 const { filterByQuery, findById, createNewNote, validateNote } = require('../../lib/notes'); //import functions to be used in this file
 const { notes } = require('../../db/db.json'); //import data
+const uniqid = require('uniqid');
 
 // Get data from web and filter based on query
 router.get('/notes', (req, res) => {
@@ -24,7 +25,7 @@ router.get('/notes/:id', (req, res) => {
 
 // post data to db
 router.post('/notes', (req, res) => {
-    req.body.id = notes.length.toString(); //generate an id based on length of data
+    req.body.id = uniqid();
 
     if(!validateNote(req.body)) {
         res.status(400).send('This note is not properly formatted.');
